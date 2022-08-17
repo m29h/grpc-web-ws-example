@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package example.library;
+option go_package ="example/library";
+
+message msg {
+  int64 val = 1;
+}
+
+service ExampleService {
+  rpc Ping(stream msg) returns (msg) {}
+  rpc Pong(msg) returns (stream msg) {}
+}
